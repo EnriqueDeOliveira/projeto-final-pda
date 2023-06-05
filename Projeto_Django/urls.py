@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 from django.contrib import admin
 from django.urls import path
-from Projeto_Django.views import index, sobre, contato, login
+from Projeto_Django.views import index, sobre, contato, login, cadastro
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,4 +29,5 @@ urlpatterns = [
     path('sobre/',sobre),
     path('contato/',contato),
     path('login/',login),
+    path('cadastro/',cadastro),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

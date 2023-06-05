@@ -36,4 +36,12 @@ def login(request):
     ctx = Context()
     documento = pagina.render(ctx)
     return HttpResponse(documento)
+
+def cadastro(request):
+    path = os.path.join(settings.BASE_DIR, 'site', 'cadastro.html')
+    with open(path, 'r') as arquivo:
+         pagina = Template(arquivo.read())
+    ctx = Context()
+    documento = pagina.render(ctx)
+    return HttpResponse(documento)
        
