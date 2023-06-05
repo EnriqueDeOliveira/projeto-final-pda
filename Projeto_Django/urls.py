@@ -20,14 +20,10 @@ from django.conf.urls.static import static
 
 
 from django.contrib import admin
-from django.urls import path
-from Projeto_Django.views import index, sobre, contato, login, cadastro
+from django.urls import path, include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/',index),
-    path('sobre/',sobre),
-    path('contato/',contato),
-    path('login/',login),
-    path('cadastro/',cadastro),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('',include('app.urls')),
+]
