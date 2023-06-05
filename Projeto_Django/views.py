@@ -1,37 +1,39 @@
-#Importando a biblioteca httpresponse
+import os
+from django.conf import settings
 from django.http import HttpResponse
-#import datetime
-#importação para manipulação de arquivo externo
-from django.template import Template,Context
-#importação para manipulação de arquivos xml
-#import xml.etree.cElementTree as ET
+from django.template import Template, Context
 
-#chamando arquivo html
 def index(request):
-   documentoExterno = open("C:/Users/Admin/Desktop/DJANGO/Projeto_Django/site/index.html")
-   pagina = Template(documentoExterno.read())
-   documentoExterno.close()
-   ctx = Context()
-   documento = pagina.render(ctx)
-   return HttpResponse(documento)
+    path = os.path.join(settings.BASE_DIR, 'site', 'index.html')
+    with open(path, 'r') as arquivo:
+        pagina = Template(arquivo.read())
+    ctx = Context()
+    documento = pagina.render(ctx)
+    return HttpResponse(documento)
 
 #chamando arquivo html 'sobre'
 def sobre(request):
-   documentoExterno = open("C:/Users/Admin/Desktop/DJANGO/Projeto_Django/site/sobre.html")
-   pagina = Template(documentoExterno.read())
-   documentoExterno.close()
-   ctx = Context()
-   documento = pagina.render(ctx)
-   return HttpResponse(documento)
+    path = os.path.join(settings.BASE_DIR, 'site', 'sobre.html')
+    with open(path, 'r') as arquivo:
+        pagina = Template(arquivo.read())
+    ctx = Context()
+    documento = pagina.render(ctx)
+    return HttpResponse(documento)
 
 #chamando arquivo html 'contato'
 def contato(request):
-   documentoExterno = open("C:/Users/Admin/Desktop/DJANGO/Projeto_Django/site/contato.html")                          
-   pagina = Template(documentoExterno.read())
-   documentoExterno.close()
-   ctx = Context()
-   documento = pagina.render(ctx)
-   return HttpResponse(documento)
+    path = os.path.join(settings.BASE_DIR, 'site', 'contato.html')
+    with open(path, 'r') as arquivo:
+        pagina = Template(arquivo.read())
+    ctx = Context()
+    documento = pagina.render(ctx)
+    return HttpResponse(documento)
 
-         
+def login(request):
+    path = os.path.join(settings.BASE_DIR, 'site', 'login.html')
+    with open(path, 'r') as arquivo:
+         pagina = Template(arquivo.read())
+    ctx = Context()
+    documento = pagina.render(ctx)
+    return HttpResponse(documento)
        
